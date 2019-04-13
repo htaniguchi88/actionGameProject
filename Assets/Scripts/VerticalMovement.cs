@@ -9,7 +9,6 @@ public class VerticalMovement : MonoBehaviour
 
     void Update()
     {
-        float pressure = 4.2f;
-        transform.Translate(0, 0.18f * pressure, 0);
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = -1.00f;
     }
 }

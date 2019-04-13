@@ -11,6 +11,6 @@ public class EnemyGenerator : MonoBehaviour
 
     void GenerateRedSquare()
     {
-        Instantiate(RedSquareEnemyPrefab, new Vector3(-5 + 10 * Random.value, 4.5f, 0), Quaternion.identity);
+        //Instantiate(RedSquareEnemyPrefab, new Vector3(-5 + 10 * Random.value, 4.5f, 0), Quaternion.identity);
     }
 }
