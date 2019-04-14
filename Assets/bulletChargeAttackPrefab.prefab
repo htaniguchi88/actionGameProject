@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 61475112236536440}
   - component: {fileID: 50201313292651110}
   m_Layer: 0
-  m_Name: bulletAttackPrefab
+  m_Name: bulletChargeAttackPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: -0.55585027
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -147,7 +147,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b7e5f876590c94eb29f85d21dbdd535c, type: 3}
-  m_Color: {r: 0.9528302, g: 0.05842829, b: 0.8407451, a: 1}
+  m_Color: {r: 0.9529412, g: 0.80894965, b: 0.058823552, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

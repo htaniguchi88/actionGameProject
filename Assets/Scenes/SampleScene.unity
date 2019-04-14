@@ -230,6 +230,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletAttackPrefab: {fileID: 1013060449675766, guid: df4ad45c049684602a5c45ef2d754a9e,
     type: 2}
+  bulletChargeAttackPrefab: {fileID: 1013060449675766, guid: 3f6aeeebb135a4690ba894f825da820f,
+    type: 2}
 --- !u!212 &352883888
 SpriteRenderer:
   m_ObjectHideFlags: 0

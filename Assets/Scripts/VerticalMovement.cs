@@ -9,6 +9,6 @@ public class VerticalMovement : MonoBehaviour
 
     void Update()
     {
-        gameObject.GetComponent<Rigidbody2D>().gravityScale = -1.00f;
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = -0.5f;
     }
 }

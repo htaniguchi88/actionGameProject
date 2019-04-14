@@ -13,7 +13,7 @@ public class PlayerAttackController : MonoBehaviour
     void Start()
     {
         attackPressure = 0f;
-        maxAttackPressure = 1000;
+        maxAttackPressure = 150f;
         bulletRigidbody = bulletAttackPrefab.GetComponent<Rigidbody2D>();
         bulletChargeAttackRigidbody = bulletChargeAttackPrefab.GetComponent<Rigidbody2D>();
     }
@@ -36,19 +36,23 @@ public class PlayerAttackController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("hoge");
             bulletChargeAttackRigidbody.gravityScale = 0f;
             attackPressure = 0f;
             Instantiate(bulletChargeAttackPrefab, transform.position, Quaternion.identity);
             if (attackPressure < maxAttackPressure) {
-                attackPressure += Time.deltaTime * 100f;
+                attackPressure += Time.deltaTime;
             } else {
                 attackPressure = maxAttackPressure;
             }
-        } else {
-            if (attackPressure > 0f) {
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if (attackPressure > 0f)
+            {
+                Debug.Log(attackPressure);
                 //bulletRigidbody.velocity = new Vector3(0f, attackPressure, 0f);
-                bulletChargeAttackRigidbody.gravityScale = -attackPressure/2f;
+                bulletChargeAttackRigidbody.gravityScale = -1 * attackPressure;
             }
         }
     }
