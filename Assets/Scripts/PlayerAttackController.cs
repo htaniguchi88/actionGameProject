@@ -7,14 +7,12 @@ public class PlayerAttackController : MonoBehaviour
     public GameObject bulletChargeAttackPrefab;
     float attackPressure;
     float maxAttackPressure;
-    Rigidbody2D bulletRigidbody;
     Rigidbody2D bulletChargeAttackRigidbody;
 
     void Start()
     {
         attackPressure = 0f;
-        maxAttackPressure = 150f;
-        bulletRigidbody = bulletAttackPrefab.GetComponent<Rigidbody2D>();
+        maxAttackPressure = 1000f;
         bulletChargeAttackRigidbody = bulletChargeAttackPrefab.GetComponent<Rigidbody2D>();
     }
 
@@ -34,13 +32,16 @@ public class PlayerAttackController : MonoBehaviour
 
     public void ChargeAttack()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            attackPressure = 0f;
+            bulletChargeAttackRigidbody.gravityScale = 0f;
+        }
+
         if (Input.GetKey(KeyCode.Space))
         {
-            bulletChargeAttackRigidbody.gravityScale = 0f;
-            attackPressure = 0f;
-            Instantiate(bulletChargeAttackPrefab, transform.position, Quaternion.identity);
             if (attackPressure < maxAttackPressure) {
-                attackPressure += Time.deltaTime;
+                attackPressure += Time.deltaTime * 5f;
             } else {
                 attackPressure = maxAttackPressure;
             }
@@ -48,11 +49,11 @@ public class PlayerAttackController : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            if (attackPressure > 0f)
+            if (attackPressure > 5f)
             {
                 Debug.Log(attackPressure);
-                //bulletRigidbody.velocity = new Vector3(0f, attackPressure, 0f);
-                bulletChargeAttackRigidbody.gravityScale = -1 * attackPressure;
+                bulletChargeAttackRigidbody.gravityScale = -1f * attackPressure;
+                Instantiate(bulletChargeAttackPrefab, transform.position, Quaternion.identity);
             }
         }
     }

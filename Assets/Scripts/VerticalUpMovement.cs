@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class VerticalMovement : MonoBehaviour
+public class VerticalUpMovement : MonoBehaviour
 {
     void Start() {
         Vector3 tmp = GameObject.Find("Player").transform.position;
@@ -9,6 +9,6 @@ public class VerticalMovement : MonoBehaviour
 
     void Update()
     {
-        gameObject.GetComponent<Rigidbody2D>().gravityScale = -0.5f;
+        transform.Translate(0, 0.08f, 0);
     }
 }
